@@ -76,16 +76,49 @@ Where $F_{max}$ is maximum clock frequency, $BL$ is block length, $CPI$ is cycle
 ## 📂 Repository Structure
 
 ```text
-├── rtl/                          # Verilog/SystemVerilog Source Files
-│   ├── top_decoder.v             # Top-level wrapper integrating all components
-│   ├── vtc_calculation.v         # Variable-to-Check calculation module
-│   ├── min_submin_calc.v         # 4-stage comparator & ABS logic
-│   ├── ctv_app_calc.v            # Check-to-Variable and APP update unit
-│   ├── mode_selector.v           # Operating mode & READY signal controller
-│   └── iter_counter.v            # Iteration tracking & convergence monitor
-├── memory/                       # Memory & Storage Modules
-│   ├── bram_app.v                # Dual-port APP block RAM controller
-│   └── matrix_rom.v              # Compressed matrix storage vectors (vals, pos, elementSize)
-├── sim/                          # Testbenches & Simulation Scripts
-│   └── tb_ldpc_decoder.v         # Comprehensive testbench for WiMAX/WiFi standards
-└── constraints/                  # FPGA Pin & Timing Constraints (.xdc)
+├── src/                          # Source HDL Modules
+│   ├── abs_calc.sv               # Absolute value and sign extraction module
+│   ├── bram_app.sv               # APP Block RAM controller
+│   ├── bram_ctv.sv               # CTV Block RAM controller
+│   ├── check_matrix.sv           # Parity-check matrix handling module
+│   ├── check_matrix.sv.bak       # Backup of check_matrix module
+│   ├── comp_min.sv               # Minimum comparison logic
+│   ├── comp_tree.sv              # Comparator tree structure
+│   ├── ctv_app_calc.sv           # Check-to-Variable and APP update unit
+│   ├── fa.sv                     # Full adder / auxiliary module
+│   ├── fa_calc.sv                # Full adder calculation logic
+│   ├── h_base.mem                # Base parity-check matrix memory initialization file
+│   ├── h_base.mem.bak            # Backup of memory initialization file
+│   ├── iter_compare.sv           # Iteration comparison and check logic
+│   ├── iter_counter.sv           # Iteration tracking and counter module
+│   ├── iteration_counter.sv      # Secondary iteration counter block
+│   ├── ldpc_top.sv               # Top-level integration module
+│   ├── ldpc_top.sv.bak           # Backup of top-level integration module
+│   ├── min_submin.sv             # Min and submin calculation pipeline
+│   ├── mode_select_top.sv        # Operating mode selection state controller
+│   ├── sign_insertion.sv         # Sign insertion logic block
+│   ├── signs_xoring.sv           # Modulo-2 sign XOR reduction block
+│   ├── uart_rx.sv                # UART receiver module
+│   └── vtc_calc.sv               # Variable-to-Check calculation module
+├── tb/                           # Testbenches & Simulation Files
+│   ├── fa.sv                     # Testbench auxiliary module
+│   ├── h_base.mem                # Testbench memory initialization file
+│   ├── ldpc_top.sv               # Testbench top-level wrapper
+│   ├── tb_abs_calc.sv            # Testbench for abs_calc
+│   ├── tb_bram_app.sv            # Testbench for bram_app
+│   ├── tb_bram_ctv.sv            # Testbench for bram_ctv
+│   ├── tb_check_matrix.sv        # Testbench for tb_check_matrix
+│   ├── tb_comp_min.sv            # Testbench for tb_comp_min
+│   ├── tb_comp_tree.sv           # Testbench for tb_comp_tree
+│   ├── tb_ctv_app_calc.sv        # Testbench for tb_ctv_app_calc
+│   ├── tb_fa_calc.sv             # Testbench for tb_fa_calc
+│   ├── tb_iter_compare.sv        # Testbench for tb_iter_compare
+│   ├── tb_iter_counter.sv        # Testbench for tb_iter_counter
+│   ├── tb_iteration_counter.sv   # Testbench for tb_iteration_counter
+│   ├── tb_min_submin.sv          # Testbench for tb_min_submin
+│   ├── tb_mode_select_top.sv     # Testbench for tb_mode_select_top
+│   ├── tb_sign_insertion.sv      # Testbench for tb_sign_insertion
+│   ├── tb_signs_xoring.sv        # Testbench for tb_signs_xoring
+│   └── tb_vtc_calc.sv            # Testbench for tb_vtc_calc
+├── ldpc_wrapper                  # SystemVerilog wrapper file
+└── ldpc_wrapper.sv.bak           # Backup of wrapper file
