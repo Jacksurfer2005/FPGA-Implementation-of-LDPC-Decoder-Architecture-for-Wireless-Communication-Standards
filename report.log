@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.3)  16 AUG 2026 21:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.3)  18 AUG 2026 13:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -279,10 +279,27 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen160
 \Gin@req@width=\dimen161
+) (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+\f@nch@headwidth=\skip54
+\f@nch@offset@elh=\skip55
+\f@nch@offset@erh=\skip56
+\f@nch@offset@olh=\skip57
+\f@nch@offset@orh=\skip58
+\f@nch@offset@elf=\skip59
+\f@nch@offset@erf=\skip60
+\f@nch@offset@olf=\skip61
+\f@nch@offset@orf=\skip62
+\f@nch@height=\skip63
+\f@nch@footalignment=\skip64
+\f@nch@widthL=\skip65
+\f@nch@widthC=\skip66
+\f@nch@widthR=\skip67
+\@temptokenb=\toks25
 ) (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
 \c@AlgoLine=\count297
-\algocf@hangindent=\skip54
+\algocf@hangindent=\skip68
  (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
 \c@checkoddpage=\count298
@@ -291,58 +308,41 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip55
-\skiplinenumber=\skip56
-\skiprule=\skip57
-\skiphlne=\skip58
-\skiptext=\skip59
-\skiplength=\skip60
-\algomargin=\skip61
-\skipalgocfslide=\skip62
+\skiptotal=\skip69
+\skiplinenumber=\skip70
+\skiprule=\skip71
+\skiphlne=\skip72
+\skiptext=\skip73
+\skiplength=\skip74
+\algomargin=\skip75
+\skipalgocfslide=\skip76
 \algowidth=\dimen162
 \inoutsize=\dimen163
 \inoutindent=\dimen164
 \interspacetitleruled=\dimen165
 \interspacealgoruled=\dimen166
 \interspacetitleboxruled=\dimen167
-\algocf@ruledwidth=\skip63
+\algocf@ruledwidth=\skip77
 \algocf@inoutbox=\box55
 \algocf@inputbox=\box56
-\AlCapSkip=\skip64
-\AlCapHSkip=\skip65
-\algoskipindent=\skip66
+\AlCapSkip=\skip78
+\AlCapHSkip=\skip79
+\algoskipindent=\skip80
 \algocf@nlbox=\box57
 \algocf@hangingbox=\box58
 \algocf@untilbox=\box59
-\algocf@skipuntil=\skip67
+\algocf@skipuntil=\skip81
 \algocf@capbox=\box60
-\algocf@lcaptionbox=\skip68
-\algoheightruledefault=\skip69
-\algoheightrule=\skip70
-\algotitleheightruledefault=\skip71
-\algotitleheightrule=\skip72
+\algocf@lcaptionbox=\skip82
+\algoheightruledefault=\skip83
+\algoheightrule=\skip84
+\algotitleheightruledefault=\skip85
+\algotitleheightrule=\skip86
 \c@algocfline=\count299
 \c@algocfproc=\count300
 \c@algocf=\count301
 \algocf@algoframe=\box61
 \algocf@algobox=\box62
-) (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
-Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
-\f@nch@headwidth=\skip73
-\f@nch@offset@elh=\skip74
-\f@nch@offset@erh=\skip75
-\f@nch@offset@olh=\skip76
-\f@nch@offset@orh=\skip77
-\f@nch@offset@elf=\skip78
-\f@nch@offset@erf=\skip79
-\f@nch@offset@olf=\skip80
-\f@nch@offset@orf=\skip81
-\f@nch@height=\skip82
-\f@nch@footalignment=\skip83
-\f@nch@widthL=\skip84
-\f@nch@widthC=\skip85
-\f@nch@widthR=\skip86
-\@temptokenb=\toks25
 ) (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
  (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
@@ -1554,26 +1554,26 @@ Package babel Info: 'vietnamese' activates 'vietnamese' shorthands.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
  (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count609
@@ -1599,11 +1599,11 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 \enitdp@tabularnotes=\count616
 \c@tabularnotes*i=\count617
 \enitdp@tabularnotes*=\count618
-Package translations Info: no dictionary file `translations-basic-dictionary-vietnamese.trsl' found. on input line 32.
+Package translations Info: no dictionary file `translations-basic-dictionary-vietnamese.trsl' found. on input line 31.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 32.
+ on input line 31.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1639,7 +1639,7 @@ Package pgfplots Warning: running in backwards compatibility mode (unsuitable ti
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 31.
 (report.out) (report.out)
 \@outlinefile=\write6
 \openout6 = `report.out'.
@@ -1662,7 +1662,7 @@ Package biblatex Info: ... file 'vietnamese.lbx' not found.
 
 
 Package biblatex Warning: Language 'vietnamese' not supported.
-(biblatex)                Using dummy definitions on input line 32.
+(biblatex)                Using dummy definitions on input line 31.
 
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
@@ -1672,13 +1672,13 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
 (report.bbl)
-Package biblatex Info: Reference section=0 on input line 32.
-Package biblatex Info: Reference segment=0 on input line 32.
+Package biblatex Info: Reference section=0 on input line 31.
+Package biblatex Info: Reference segment=0 on input line 31.
 Package babel Info: Main language set to 'vietnamese'.
 <logobk.png, id=126, 1204.5pt x 1216.545pt>
 File: logobk.png Graphic file (type png)
 <use logobk.png>
-Package pdftex.def Info: logobk.png  used on input line 34.
+Package pdftex.def Info: logobk.png  used on input line 33.
 (pdftex.def)             Requested size: 120.45705pt x 121.66162pt.
  [1
 
@@ -1748,7 +1748,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.80     \item M
+l.79     \item M
                 áº·c dÃ¹ Ä‘Ã£ cÃ³ má»™t sá»‘ Ã­t cÃ¡c cÃ´ng trÃ¬nh nghiÃªn c... [1
 
 
@@ -1800,7 +1800,7 @@ Ch\uhorn \ohorn ng 3.
 <./images/FPGA LDPC decoder.png, id=342, 957.5775pt x 415.5525pt>
 File: ./images/FPGA LDPC decoder.png Graphic file (type png)
 <use ./images/FPGA LDPC decoder.png>
-Package pdftex.def Info: ./images/FPGA LDPC decoder.png  used on input line 344.
+Package pdftex.def Info: ./images/FPGA LDPC decoder.png  used on input line 343.
 (pdftex.def)             Requested size: 409.71692pt x 177.80272pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1815,7 +1815,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-BRAM_APP.drawio.png, id=348, 549.252pt x 205.2468pt>
 File: ./images/LDP_DECODER-BRAM_APP.drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-BRAM_APP.drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-BRAM_APP.drawio.png  used on input line 363.
+Package pdftex.def Info: ./images/LDP_DECODER-BRAM_APP.drawio.png  used on input line 362.
 (pdftex.def)             Requested size: 409.71692pt x 153.10477pt.
 
 
@@ -1829,7 +1829,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-BRAM_CTV.drawio.png, id=355, 549.252pt x 204.5241pt>
 File: ./images/LDP_DECODER-BRAM_CTV.drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-BRAM_CTV.drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-BRAM_CTV.drawio.png  used on input line 385.
+Package pdftex.def Info: ./images/LDP_DECODER-BRAM_CTV.drawio.png  used on input line 384.
 (pdftex.def)             Requested size: 409.71692pt x 152.56567pt.
 
 
@@ -1843,7 +1843,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-ITER COUNTER.drawio.png, id=361, 881.694pt x 291.2481pt>
 File: ./images/LDP_DECODER-ITER COUNTER.drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-ITER COUNTER.drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-ITER COUNTER.drawio.png  used on input line 407.
+Package pdftex.def Info: ./images/LDP_DECODER-ITER COUNTER.drawio.png  used on input line 406.
 (pdftex.def)             Requested size: 409.71692pt x 135.34007pt.
 
 
@@ -1854,16 +1854,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [10 <./images/LDP_DECODER-ITER COUNTER.drawio.png>]
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 428.
+LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 427.
  (C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 430.
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 429.
 <./images/LDP_DECODER-MODE_SELECT.drawio (1).png, id=367, 838.332pt x 161.8848pt>
 File: ./images/LDP_DECODER-MODE_SELECT.drawio (1).png Graphic file (type png)
 <use ./images/LDP_DECODER-MODE_SELECT.drawio (1).png>
-Package pdftex.def Info: ./images/LDP_DECODER-MODE_SELECT.drawio (1).png  used on input line 438.
+Package pdftex.def Info: ./images/LDP_DECODER-MODE_SELECT.drawio (1).png  used on input line 437.
 (pdftex.def)             Requested size: 409.71692pt x 79.11922pt.
 
 
@@ -1877,17 +1877,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-MODE_SELECT.drawio.png, id=376, 433.62pt x 117.8001pt>
 File: ./images/LDP_DECODER-MODE_SELECT.drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-MODE_SELECT.drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-MODE_SELECT.drawio.png  used on input line 451.
+Package pdftex.def Info: ./images/LDP_DECODER-MODE_SELECT.drawio.png  used on input line 450.
 (pdftex.def)             Requested size: 364.19667pt x 98.9442pt.
 <./images/LDP_DECODER-MODE_SELECT.drawio (2).png, id=377, 910.602pt x 247.8861pt>
 File: ./images/LDP_DECODER-MODE_SELECT.drawio (2).png Graphic file (type png)
 <use ./images/LDP_DECODER-MODE_SELECT.drawio (2).png>
-Package pdftex.def Info: ./images/LDP_DECODER-MODE_SELECT.drawio (2).png  used on input line 459.
+Package pdftex.def Info: ./images/LDP_DECODER-MODE_SELECT.drawio (2).png  used on input line 458.
 (pdftex.def)             Requested size: 455.24411pt x 123.9276pt.
 <./images/LDP_DECODER-VTC_CALC.drawio.png, id=378, 1011.78pt x 263.0628pt>
 File: ./images/LDP_DECODER-VTC_CALC.drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-VTC_CALC.drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-VTC_CALC.drawio.png  used on input line 480.
+Package pdftex.def Info: ./images/LDP_DECODER-VTC_CALC.drawio.png  used on input line 479.
 (pdftex.def)             Requested size: 455.24411pt x 118.36511pt.
 
 
@@ -1904,7 +1904,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-VTC_CALC(1).drawio.png, id=388, 867.24pt x 176.3388pt>
 File: ./images/LDP_DECODER-VTC_CALC(1).drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-VTC_CALC(1).drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-VTC_CALC(1).drawio.png  used on input line 499.
+Package pdftex.def Info: ./images/LDP_DECODER-VTC_CALC(1).drawio.png  used on input line 498.
 (pdftex.def)             Requested size: 455.24411pt x 92.5658pt.
 
 
@@ -1918,12 +1918,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-ABS.drawio.png, id=396, 1322.541pt x 291.9708pt>
 File: ./images/LDP_DECODER-ABS.drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-ABS.drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio.png  used on input line 527.
+Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio.png  used on input line 526.
 (pdftex.def)             Requested size: 455.24411pt x 100.49837pt.
 <./images/LDP_DECODER-ABS.drawio (1).png, id=397, 556.479pt x 320.8788pt>
 File: ./images/LDP_DECODER-ABS.drawio (1).png Graphic file (type png)
 <use ./images/LDP_DECODER-ABS.drawio (1).png>
-Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio (1).png  used on input line 543.
+Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio (1).png  used on input line 542.
 (pdftex.def)             Requested size: 364.19667pt x 210.00333pt.
 
 
@@ -1937,7 +1937,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-ABS.drawio (2).png, id=408, 809.424pt x 233.4321pt>
 File: ./images/LDP_DECODER-ABS.drawio (2).png Graphic file (type png)
 <use ./images/LDP_DECODER-ABS.drawio (2).png>
-Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio (2).png  used on input line 554.
+Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio (2).png  used on input line 553.
 (pdftex.def)             Requested size: 409.71692pt x 118.15831pt.
 
 
@@ -1951,12 +1951,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-ABS.drawio (3).png, id=417, 505.89pt x 204.5241pt>
 File: ./images/LDP_DECODER-ABS.drawio (3).png Graphic file (type png)
 <use ./images/LDP_DECODER-ABS.drawio (3).png>
-Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio (3).png  used on input line 568.
+Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio (3).png  used on input line 567.
 (pdftex.def)             Requested size: 318.66948pt x 128.83524pt.
 <./images/LDP_DECODER-ABS.drawio (4).png, id=418, 925.056pt x 609.2361pt>
 File: ./images/LDP_DECODER-ABS.drawio (4).png Graphic file (type png)
 <use ./images/LDP_DECODER-ABS.drawio (4).png>
-Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio (4).png  used on input line 574.
+Package pdftex.def Info: ./images/LDP_DECODER-ABS.drawio (4).png  used on input line 573.
 (pdftex.def)             Requested size: 409.71692pt x 269.84029pt.
 
 
@@ -1970,7 +1970,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-SIGN.INSERT.drawio.png, id=426, 476.982pt x 413.3844pt>
 File: ./images/LDP_DECODER-SIGN.INSERT.drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-SIGN.INSERT.drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-SIGN.INSERT.drawio.png  used on input line 592.
+Package pdftex.def Info: ./images/LDP_DECODER-SIGN.INSERT.drawio.png  used on input line 591.
 (pdftex.def)             Requested size: 409.71692pt x 355.09364pt.
 
 
@@ -1984,7 +1984,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/LDP_DECODER-CTV APP CALC.drawio.png, id=434, 462.528pt x 320.1561pt>
 File: ./images/LDP_DECODER-CTV APP CALC.drawio.png Graphic file (type png)
 <use ./images/LDP_DECODER-CTV APP CALC.drawio.png>
-Package pdftex.def Info: ./images/LDP_DECODER-CTV APP CALC.drawio.png  used on input line 599.
+Package pdftex.def Info: ./images/LDP_DECODER-CTV APP CALC.drawio.png  used on input line 598.
 (pdftex.def)             Requested size: 386.96027pt x 267.8643pt.
 
 
@@ -1999,7 +1999,7 @@ Ch\uhorn \ohorn ng 4.
 <./images/bram_app_waveform.png, id=442, 1443.89438pt x 767.86874pt>
 File: ./images/bram_app_waveform.png Graphic file (type png)
 <use ./images/bram_app_waveform.png>
-Package pdftex.def Info: ./images/bram_app_waveform.png  used on input line 690.
+Package pdftex.def Info: ./images/bram_app_waveform.png  used on input line 689.
 (pdftex.def)             Requested size: 455.24411pt x 242.10255pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2011,87 +2011,87 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [19
 
  <./images/bram_app_waveform.png>]
-Underfull \hbox (badness 6125) in paragraph at lines 750--750
+Underfull \hbox (badness 6125) in paragraph at lines 749--749
 []|\T5/cmr/m/n/12 a_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR3X1LVT
  []
 
 
-Underfull \hbox (badness 7099) in paragraph at lines 750--750
+Underfull \hbox (badness 7099) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND3X2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI22XLLVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 6125) in paragraph at lines 750--750
+Underfull \hbox (badness 6125) in paragraph at lines 749--749
 []|\T5/cmr/m/n/12 a_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR3X1LVT
  []
 
 
-Underfull \hbox (badness 7099) in paragraph at lines 750--750
+Underfull \hbox (badness 7099) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND3X2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI22XLLVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 1924) in paragraph at lines 750--750
+Underfull \hbox (badness 1924) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--750
+Underfull \hbox (badness 10000) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI22X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 3386) in paragraph at lines 750--750
+Underfull \hbox (badness 3386) in paragraph at lines 749--749
 []|\T5/cmr/m/n/12 a_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX3HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR3X1HVT
  []
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 750--750
+Underfull \hbox (badness 4036) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND3X4HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI22XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--750
+Underfull \hbox (badness 10000) in paragraph at lines 749--749
 []|\T5/cmr/m/n/12 a_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 CLK-INVX20HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--750
+Underfull \hbox (badness 10000) in paragraph at lines 749--749
 \T5/cmr/m/n/12 NOR3X6HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 CLKAND2X2HVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--750
+Underfull \hbox (badness 10000) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND2X8HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX2HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 3386) in paragraph at lines 750--750
+Underfull \hbox (badness 3386) in paragraph at lines 749--749
 []|\T5/cmr/m/n/12 a_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X1HVT
  []
 
 
-Underfull \hbox (badness 4217) in paragraph at lines 750--750
+Underfull \hbox (badness 4217) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND2X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 CLKAND2X2HVT
  []
 
 
-Underfull \hbox (badness 1226) in paragraph at lines 750--750
+Underfull \hbox (badness 1226) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI22X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND4XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 2828) in paragraph at lines 750--750
+Underfull \hbox (badness 2828) in paragraph at lines 749--749
 []|\T5/cmr/m/n/12 a_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2XLHVT
  []
 
 
-Underfull \hbox (badness 5345) in paragraph at lines 750--750
+Underfull \hbox (badness 5345) in paragraph at lines 749--749
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND2X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND2X2HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--750
+Underfull \hbox (badness 10000) in paragraph at lines 749--749
 \T5/cmr/m/n/12 AOI222X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND4XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
@@ -2106,7 +2106,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/bram_ctv_waveform.png, id=453, 1440.88312pt x 421.575pt>
 File: ./images/bram_ctv_waveform.png Graphic file (type png)
 <use ./images/bram_ctv_waveform.png>
-Package pdftex.def Info: ./images/bram_ctv_waveform.png  used on input line 771.
+Package pdftex.def Info: ./images/bram_ctv_waveform.png  used on input line 770.
 (pdftex.def)             Requested size: 455.24411pt x 133.19565pt.
 
 
@@ -2117,7 +2117,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [21 <./images/bram_ctv_waveform.png>]
-Overfull \hbox (15.2065pt too wide) in paragraph at lines 780--781
+Overfull \hbox (15.2065pt too wide) in paragraph at lines 779--780
 \T5/cmr/m/n/12 1E,... vîi c¡c gi¡ trà m¨u nh÷ 0000_00000000_0000_0000_0000_0000_00009595,
  []
 
@@ -2129,112 +2129,112 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [22]
-Underfull \hbox (badness 1348) in paragraph at lines 844--844
+Underfull \hbox (badness 1348) in paragraph at lines 843--843
 []|\T5/cmr/m/n/12 rd_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2XLHVT
  []
 
 
-Underfull \hbox (badness 5345) in paragraph at lines 844--844
+Underfull \hbox (badness 5345) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND2X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND2X2HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \T5/cmr/m/n/12 AOI222X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND4XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 844--844
+Underfull \hbox (badness 1694) in paragraph at lines 843--843
 []|\T5/cmr/m/n/12 rd_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X1HVT
  []
 
 
-Underfull \hbox (badness 4217) in paragraph at lines 844--844
+Underfull \hbox (badness 4217) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND2X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 CLKAND2X2HVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 []|\T5/cmr/m/n/12 rd_addr[3] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X2HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \T5/cmr/m/n/12 NAND2X2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 2469) in paragraph at lines 844--844
+Underfull \hbox (badness 2469) in paragraph at lines 843--843
 \T5/cmr/m/n/12 CLKAND2X3HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 CLKAND2X8HVT
  []
 
 
-Underfull \hbox (badness 7540) in paragraph at lines 844--844
+Underfull \hbox (badness 7540) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX3HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI211X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 1694) in paragraph at lines 844--844
+Underfull \hbox (badness 1694) in paragraph at lines 843--843
 []|\T5/cmr/m/n/12 rd_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX3HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR3X1HVT
  []
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 844--844
+Underfull \hbox (badness 4036) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND3X4HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI22XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \T5/cmr/m/n/12 NAND4XLHVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OR3XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI22XLLVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \T5/cmr/m/n/12 AOI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI22XLLVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1LLVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI22X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \T5/cmr/m/n/12 AOI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 844--844
+Underfull \hbox (badness 3514) in paragraph at lines 843--843
 []|\T5/cmr/m/n/12 rd_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR3X1LVT
  []
 
 
-Underfull \hbox (badness 7099) in paragraph at lines 844--844
+Underfull \hbox (badness 7099) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND3X2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI22XLLVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \T5/cmr/m/n/12 NAND4XLHVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OR3XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 844--844
+Underfull \hbox (badness 3514) in paragraph at lines 843--843
 []|\T5/cmr/m/n/12 rd_en $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR3X1LVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND3X4LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI22XLLVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND4XLVLT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OR3XLVLT $\OMS/cmsy/m/n/12 !$
  []
 
@@ -2246,14 +2246,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [23]
-Overfull \hbox (3.64656pt too wide) in paragraph at lines 851--852
+Overfull \hbox (3.64656pt too wide) in paragraph at lines 850--851
 \T5/cmr/m/n/12 NAND2X2HVT, CLKAND, OAI, OR4X1HVT) ^^_¸n ch¥n dú li»u rd_data_reg[50]/D
  []
 
 <./images/iter_counter_waveform.png, id=467, 1440.88312pt x 402.75468pt>
 File: ./images/iter_counter_waveform.png Graphic file (type png)
 <use ./images/iter_counter_waveform.png>
-Package pdftex.def Info: ./images/iter_counter_waveform.png  used on input line 858.
+Package pdftex.def Info: ./images/iter_counter_waveform.png  used on input line 857.
 (pdftex.def)             Requested size: 455.24411pt x 127.2494pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2271,172 +2271,172 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 []|\T5/cmr/m/n/12 max_iter[1] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI211X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OA21X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI2BB1XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 []|\T5/cmr/m/n/12 max_iter[1] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI211X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OA21X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI221X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 []|\T5/cmr/m/n/12 iter_cnt_reg[0]/CK $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 DF-FRX1HVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2BX1HVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AND2XLHVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI2BB1X1HVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1HVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1HVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21XLHVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OA21X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 []|\T5/cmr/m/n/12 max_iter[0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BXLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 AOI2BB1XLHVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI21XLHVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI22X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1HVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OA21X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 []|\T5/cmr/m/n/12 max_iter[1] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI211X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 AOI2BB1X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OA21X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 []|\T5/cmr/m/n/12 max_iter[1] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI211X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 AOI2BB1X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OA21X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 []|\T5/cmr/m/n/12 max_iter[0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BXLVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AOI21X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI22X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OA21X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 []|\T5/cmr/m/n/12 max_iter[1] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI211X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI221X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--922
+Underfull \hbox (badness 10000) in paragraph at lines 921--921
 \T5/cmr/m/n/12 AOI2BB1X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OA21X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
@@ -2451,7 +2451,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/mode_select_waveform.png, id=482, 1433.355pt x 499.8675pt>
 File: ./images/mode_select_waveform.png Graphic file (type png)
 <use ./images/mode_select_waveform.png>
-Package pdftex.def Info: ./images/mode_select_waveform.png  used on input line 939.
+Package pdftex.def Info: ./images/mode_select_waveform.png  used on input line 938.
 (pdftex.def)             Requested size: 455.24411pt x 158.75574pt.
 
 
@@ -2470,157 +2470,157 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 []|\T5/cmr/m/n/12 max_iteration[0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OR2XLHVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OAI2BB1X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OAI2BB1X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 []|\T5/cmr/m/n/12 max_iteration[0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OR2XLHVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OAI2BB1X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OAI2BB1X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 8189) in paragraph at lines 1002--1002
+Underfull \hbox (badness 8189) in paragraph at lines 1001--1001
 []|\T5/cmr/m/n/12 max_iteration[0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 CLK-INVX12HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 NOR2X8HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 CLK-INVX6HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 NAND2X4HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2X4HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 NAND2X4HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2X4HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 NAND2X2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OAI2BB1X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2X8HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 AND2X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OR2X8HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 out-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 []|\T5/cmr/m/n/12 max_iteration[0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OR2XLHVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AO22XLHVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \T5/cmr/m/n/12 OAI21X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT
  []
 
 
-Underfull \hbox (badness 5817) in paragraph at lines 1002--1002
+Underfull \hbox (badness 5817) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT
  []
 
 
-Underfull \hbox (badness 5817) in paragraph at lines 1002--1002
+Underfull \hbox (badness 5817) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT
  []
 
 
-Underfull \hbox (badness 5817) in paragraph at lines 1002--1002
+Underfull \hbox (badness 5817) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT
  []
 
 
-Underfull \hbox (badness 5817) in paragraph at lines 1002--1002
+Underfull \hbox (badness 5817) in paragraph at lines 1001--1001
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
@@ -2635,10 +2635,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/vtc_calc_waveform.png, id=496, 1307.63531pt x 759.58781pt>
 File: ./images/vtc_calc_waveform.png Graphic file (type png)
 <use ./images/vtc_calc_waveform.png>
-Package pdftex.def Info: ./images/vtc_calc_waveform.png  used on input line 1016.
+Package pdftex.def Info: ./images/vtc_calc_waveform.png  used on input line 1015.
 (pdftex.def)             Requested size: 455.24411pt x 264.4457pt.
 
-Overfull \hbox (1.2346pt too wide) in paragraph at lines 1022--1023
+Overfull \hbox (1.2346pt too wide) in paragraph at lines 1021--1022
 []\T5/cmr/m/n/12 Lþ do l»ch pha thíi gian cõa vtc_expected: Trong kho£ng 10 ns - 20 ns, vtc_expected
  []
 
@@ -2650,12 +2650,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [30 <./images/vtc_calc_waveform.png>]
-Overfull \hbox (45.4721pt too wide) in paragraph at lines 1051--1052
+Overfull \hbox (45.4721pt too wide) in paragraph at lines 1050--1051
 []\T5/cmr/m/n/12 Di»n t½ch lîn nh§t ($\OT1/cmr/m/n/12 5283\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 174 \OML/cmm/m/it/12 ^^V[][]$\T5/cmr/m/n/12 ): Xu§t hi»n t¤i gâc k²m nh§t slow_vdd1v0_basicCells_hvt.
  []
 
 
-Overfull \hbox (4.19606pt too wide) in paragraph at lines 1052--1053
+Overfull \hbox (4.19606pt too wide) in paragraph at lines 1051--1052
 []\T5/cmr/m/n/12 Di»n t½ch nhä nh§t ($\OT1/cmr/m/n/12 1567\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 728 \OML/cmm/m/it/12 ^^V[][]$\T5/cmr/m/n/12 ): ^^^¤t ^^_÷ñc t¤i cor-ner fast_vdd1v2_basicCells_lvt.
  []
 
@@ -2667,137 +2667,137 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 []|\T5/cmr/m/n/12 ctv_i[23][0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 ADDFX1HVT ($\OMS/cmsy/m/n/12 ^^B\OT1/cmr/m/n/12 6$\T5/cmr/m/n/12 ) $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 AO21X2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 []|\T5/cmr/m/n/12 ctv_i[23][0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 ADDFX1HVT ($\OMS/cmsy/m/n/12 ^^B\OT1/cmr/m/n/12 6$\T5/cmr/m/n/12 ) $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 AO21X2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 []|\T5/cmr/m/n/12 app_i[20][0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 CLK-INVX12HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 NAND2X8HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X4HVT ($\OMS/cmsy/m/n/12 ^^B\OT1/cmr/m/n/12 2$\T5/cmr/m/n/12 )
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X4HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 NOR2X2HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR3BX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 AOI2BB1X4HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 []|\T5/cmr/m/n/12 app_i[23][0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 ADDFX1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND3X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 NAND2X1HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND3X1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 AND2X6HVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1HVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 []|\T5/cmr/m/n/12 ctv_i[23][0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 ADDFX1LVT ($\OMS/cmsy/m/n/12 ^^B\OT1/cmr/m/n/12 6$\T5/cmr/m/n/12 ) $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 IN-VXL-LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 AO21X2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 []|\T5/cmr/m/n/12 ctv_i[23][0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 ADDFX1LVT ($\OMS/cmsy/m/n/12 ^^B\OT1/cmr/m/n/12 6$\T5/cmr/m/n/12 ) $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 IN-VXL-LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 AO21X2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 5817) in paragraph at lines 1078--1078
+Underfull \hbox (badness 5817) in paragraph at lines 1077--1077
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 ADDFX1LVT ($\OMS/cmsy/m/n/12 ^^B\OT1/cmr/m/n/12 4$\T5/cmr/m/n/12 ) $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NOR2X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 []|\T5/cmr/m/n/12 app_i[23][0] $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 ADDFX1LVT ($\OMS/cmsy/m/n/12 ^^B\OT1/cmr/m/n/12 6$\T5/cmr/m/n/12 ) $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 INVX1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1077
 \T5/cmr/m/n/12 AO21X2LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 NAND2BX1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Overfull \hbox (27.02377pt too wide) in paragraph at lines 1084--1085
+Overfull \hbox (27.02377pt too wide) in paragraph at lines 1083--1084
 []\T5/cmr/m/n/12 Gâc Fast (FF): C£ 4 gâc fast (fast_1v0_hvt, fast_1v2_hvt, fast_1v0_lvt, fast_1v2_lvt)
  []
 
@@ -2812,7 +2812,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/min_submin_waveform.png, id=511, 1440.88312pt x 604.50844pt>
 File: ./images/min_submin_waveform.png Graphic file (type png)
 <use ./images/min_submin_waveform.png>
-Package pdftex.def Info: ./images/min_submin_waveform.png  used on input line 1092.
+Package pdftex.def Info: ./images/min_submin_waveform.png  used on input line 1091.
 (pdftex.def)             Requested size: 455.24411pt x 190.99306pt.
 
 
@@ -2834,7 +2834,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <./images/ctv_app_calc_waveform.png, id=521, 1440.88312pt x 595.47469pt>
 File: ./images/ctv_app_calc_waveform.png Graphic file (type png)
 <use ./images/ctv_app_calc_waveform.png>
-Package pdftex.def Info: ./images/ctv_app_calc_waveform.png  used on input line 1175.
+Package pdftex.def Info: ./images/ctv_app_calc_waveform.png  used on input line 1174.
 (pdftex.def)             Requested size: 455.24411pt x 188.13885pt.
 
 
@@ -2853,17 +2853,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.93912pt}.
 
 [36]
-Overfull \hbox (12.16808pt too wide) in paragraph at lines 1221--1222
+Overfull \hbox (12.16808pt too wide) in paragraph at lines 1220--1221
 \OT1/cmr/m/n/12 10[]$ \T5/cmr/m/n/12 ð gâc fast_vdd1v2_basicCells_lvt do ho¤t ^^_ëng ð mùc ^^_i»n ¡p ^^_¿nh (1.2V/1.32V)
  []
 
 
-Underfull \hbox (badness 5817) in paragraph at lines 1239--1239
+Underfull \hbox (badness 5817) in paragraph at lines 1238--1238
 \OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI21X1LVT $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 OAI2BB1X1LVT $\OMS/cmsy/m/n/12 !$
  []
 
 
-Underfull \hbox (badness 6725) in paragraph at lines 1239--1239
+Underfull \hbox (badness 6725) in paragraph at lines 1238--1238
 \T5/cmr/m/n/12 ADDFX4LVT ($\OMS/cmsy/m/n/12 ^^B\OT1/cmr/m/n/12 3$\T5/cmr/m/n/12 ) $\OMS/cmsy/m/n/12 !$ \T5/cmr/m/n/12 AD-DHX4LVT $\OMS/cmsy/m/n/12 !$
  []
 
@@ -2896,19 +2896,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [39]
 
 Package biblatex Warning: Bibliography string 'and' untranslated
-(biblatex)                at entry '1' on input line 1288.
+(biblatex)                at entry '1' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'jourvol' untranslated
-(biblatex)                at entry '1' on input line 1288.
+(biblatex)                at entry '1' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'number' untranslated
-(biblatex)                at entry '1' on input line 1288.
+(biblatex)                at entry '1' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry '1' on input line 1288.
+(biblatex)                at entry '1' on input line 1287.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -2918,25 +2918,25 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 (biblatex)                for \mkbibdatelong.
 
 
-Overfull \hbox (16.59555pt too wide) in paragraph at lines 1288--1288
+Overfull \hbox (16.59555pt too wide) in paragraph at lines 1287--1287
 \T5/cmr/m/n/12 density parity-check codes within 0.0045 dB of the Shan-non limit,'' [] 5, [] 2,
  []
 
 
 Package biblatex Warning: Bibliography string 'and' untranslated
-(biblatex)                at entry '2' on input line 1288.
+(biblatex)                at entry '2' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'jourvol' untranslated
-(biblatex)                at entry '2' on input line 1288.
+(biblatex)                at entry '2' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'number' untranslated
-(biblatex)                at entry '2' on input line 1288.
+(biblatex)                at entry '2' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry '2' on input line 1288.
+(biblatex)                at entry '2' on input line 1287.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -2947,7 +2947,7 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'and' untranslated
-(biblatex)                at entry '3' on input line 1288.
+(biblatex)                at entry '3' on input line 1287.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -2958,11 +2958,11 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry '3' on input line 1288.
+(biblatex)                at entry '3' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'and' untranslated
-(biblatex)                at entry '4' on input line 1288.
+(biblatex)                at entry '4' on input line 1287.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -2973,7 +2973,7 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry '4' on input line 1288.
+(biblatex)                at entry '4' on input line 1287.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -2984,15 +2984,15 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'and' untranslated
-(biblatex)                at entry '6' on input line 1288.
+(biblatex)                at entry '6' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'jourvol' untranslated
-(biblatex)                at entry '6' on input line 1288.
+(biblatex)                at entry '6' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry '6' on input line 1288.
+(biblatex)                at entry '6' on input line 1287.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -3003,23 +3003,23 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'url' untranslated
-(biblatex)                at entry '6' on input line 1288.
+(biblatex)                at entry '6' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'and' untranslated
-(biblatex)                at entry '7' on input line 1288.
+(biblatex)                at entry '7' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'jourvol' untranslated
-(biblatex)                at entry '7' on input line 1288.
+(biblatex)                at entry '7' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'number' untranslated
-(biblatex)                at entry '7' on input line 1288.
+(biblatex)                at entry '7' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'pages' untranslated
-(biblatex)                at entry '7' on input line 1288.
+(biblatex)                at entry '7' on input line 1287.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -3030,11 +3030,11 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'august' untranslated
-(biblatex)                at entry '7' on input line 1288.
+(biblatex)                at entry '7' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'url' untranslated
-(biblatex)                at entry '7' on input line 1288.
+(biblatex)                at entry '7' on input line 1287.
 
 
 Package biblatex Warning: Using fallback definition for \mkbibdatelong.
@@ -3045,11 +3045,11 @@ Package biblatex Warning: Using fallback definition for \mkbibdatelong.
 
 
 Package biblatex Warning: Bibliography string 'page' untranslated
-(biblatex)                at entry '8' on input line 1288.
+(biblatex)                at entry '8' on input line 1287.
 
 
 Package biblatex Warning: Bibliography string 'url' untranslated
-(biblatex)                at entry '8' on input line 1288.
+(biblatex)                at entry '8' on input line 1287.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3061,7 +3061,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [40
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260816211514 E98D2F001DA5678B39482EFBDF5770DC)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20260818135813 E98D2F001DA5678B39482EFBDF5770DC)...disabled (restricted).
 
  (report.aux)
  ***********
@@ -3083,7 +3083,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  90i,17n,104p,1633b,1325s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\ASUS\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vncsc10.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnitt10.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr12.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb><C:/Users/ASUS/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on report.pdf (45 pages, 3644342 bytes).
+Output written on report.pdf (45 pages, 3644348 bytes).
 PDF statistics:
  679 PDF objects out of 1000 (max. 8388607)
  153 named destinations out of 1000 (max. 500000)

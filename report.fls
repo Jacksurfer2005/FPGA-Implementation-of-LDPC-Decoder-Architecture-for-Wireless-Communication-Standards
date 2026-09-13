@@ -53,6 +53,8 @@ INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\graphic
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\algorithm2e\algorithm2e.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\algorithm2e\algorithm2e.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\ifoddpage\ifoddpage.sty
@@ -61,8 +63,6 @@ INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\tools\xspace.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\tools\xspace.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\relsize\relsize.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\relsize\relsize.sty
-INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
-INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\mathtools\mathtools.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\mathtools\mathtools.sty
 INPUT C:\Users\ASUS\AppData\Local\Programs\MiKTeX\tex\latex\tools\calc.sty

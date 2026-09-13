@@ -1,17 +1,16 @@
 `timescale 1ns/1ns
 
 module iter_counter #(
-  parameter bit DONE = 1,
-  parameter int ITER_W = 5
+  parameter bit DONE = 1
 )(
-  input  logic              clk,
-  input  logic              rst_n,
-  input  logic              clear,      // bat dau khung moi
-  input  logic              iter_done,  // xung: ket thuc 1 vong lap
-  input  logic              converged,  // Hx = 0
-  input  logic [ITER_W-1:0] max_iter,
-  output logic [ITER_W-1:0] iter_cnt,
-  output logic              done        // muc cao -> ket thuc giai ma
+  input  logic       clk,
+  input  logic       rst_n,
+  input  logic       clear,      // bat dau khung moi
+  input  logic       iter_done,  // xung: ket thuc 1 vong lap
+  input  logic       converged,  // Hx = 0
+  input  logic [4:0] max_iter,
+  output logic [4:0] iter_cnt,
+  output logic       done        // muc cao -> ket thuc giai ma
 );
 
   always_ff @(posedge clk or negedge rst_n) begin
@@ -21,10 +20,14 @@ module iter_counter #(
     end else if (clear) begin
       iter_cnt <= '0;
       done     <= 1'b0;
-    end else if (iter_done) begin
-      iter_cnt <= iter_cnt + 1'b1;
-      if ((iter_cnt + 1'b1) >= max_iter)         done <= 1'b1;
-      else if (DONE && converged)                done <= 1'b1;
+    end else if (iter_done && !done) begin
+      logic [4:0] next_cnt;
+      next_cnt = iter_cnt + 1'b1;
+      
+      iter_cnt <= next_cnt;
+      if (next_cnt >= max_iter || (DONE && converged)) begin
+        done <= 1'b1;
+      end
     end
   end
 

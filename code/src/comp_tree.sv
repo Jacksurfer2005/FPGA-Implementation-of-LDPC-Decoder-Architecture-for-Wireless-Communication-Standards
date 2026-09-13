@@ -86,12 +86,24 @@ module comp_tree (
     comp_min c14(.A(e34), .B(x_3), .min_o(y_4));
     comp_min c15(.A(e56), .B(x_6), .min_o(y_5));
     comp_min c16(.A(e56), .B(x_5), .min_o(y_6));
-    comp_min c17(.A(e7),  .B(x_7), .min_o(y_7));
+    //comp_min c17(.A(e7),  .B(x_7), .min_o(y_7));
 
-    comp_min c18(.A(m1234), .B(m567M), .min_o(min_all));
+    assign y_7 = e7;
 
-    assign min_o = min_all;
+    // Tín hiệu Min tổng thể
+    comp_min c18(.A(m1234), .B(m567M), .min_o(min_o));
 
+    // ĐÃ SỬA LỖI 2: Mạch tính submin_o (Tìm giá trị Max trong tập y_1 .. y_7)
+    logic [7:0] max_y12, max_y34, max_y56, max_y1234, max_y567;
+    assign max_y12   = (y_1 > y_2) ? y_1 : y_2;
+    assign max_y34   = (y_3 > y_4) ? y_3 : y_4;
+    assign max_y56   = (y_5 > y_6) ? y_5 : y_6;
+    assign max_y1234 = (max_y12 > max_y34) ? max_y12 : max_y34;
+    assign max_y567  = (max_y56 > y_7)     ? max_y56 : y_7;
+    
+    assign submin_o  = (max_y1234 > max_y567) ? max_y1234 : max_y567;
+
+    // Các ngõ ra phụ trợ
     assign vtc_o_1 = y_1;
     assign vtc_o_2 = y_2;
     assign vtc_o_3 = y_3;
@@ -101,6 +113,5 @@ module comp_tree (
     assign vtc_o_7 = y_7;
 
     assign rowWeight = 4'd7;
-
 endmodule
 

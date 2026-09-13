@@ -1,18 +1,13 @@
 `timescale 1ns/1ns
 
-module tb_vtc_calc();
+module tb_vtc_calc;
+    localparam Z = 24;
 
-    // 1. Parameters and Signals
-    parameter int DW = 8;
-    parameter int Z  = 24;
+    logic signed [7:0] app_i [0:Z-1];
+    logic signed [7:0] ctv_i [0:Z-1];
+    logic signed [7:0] vtc_o [0:Z-1];
 
-    logic signed [Z-1:0][DW-1:0] app_i;
-    logic signed [Z-1:0][DW-1:0] ctv_i;
-    logic signed [Z-1:0][DW-1:0] vtc_o;
-
-    // 2. DUT Instantiation
     vtc_calc #(
-        .DW(DW),
         .Z(Z)
     ) dut (
         .app_i(app_i),
@@ -20,23 +15,38 @@ module tb_vtc_calc();
         .vtc_o(vtc_o)
     );
 
-    // 4. Test Stimulus
+    task test_vtc(
+        input int                tc,
+        input logic signed [7:0] app_val,
+        input logic signed [7:0] ctv_val,
+        input logic signed [7:0] exp_vtc
+    );
+        for (int i = 0; i < Z; i++) begin
+            app_i[i] = app_val;
+            ctv_i[i] = ctv_val;
+        end
+        #5;
+        $display("[TC %02d] APP: %d, CTV: %d => VTC[0]: %d (Exp: %d) | %s",
+                 tc, app_val, ctv_val, vtc_o[0], exp_vtc,
+                 (vtc_o[0] == exp_vtc) ? "PASS" : "FAIL");
+    endtask
+
     initial begin
-        app_i = '0;
-        ctv_i = '0;
+        $dumpfile("tb_vtc_calc.vcd");
+        $dumpvars(0, tb_vtc_calc);
 
-        // Gán các trường hợp toán học
-        app_i[0] = 8'd50;  ctv_i[0] = 8'd20;   // Bình thường (50 - 20 = 30)
-        app_i[1] = 8'd100; ctv_i[1] = -8'd50;  // Tràn trên (150 > MAX_INT 127) -> Clip về 127
-        app_i[2] = -8'd100; ctv_i[2] = 8'd50;  // Tràn dưới (-150 < MIN_INT -128) -> Clip về -128
+        $display("==================== TB VTC_CALC (10 CASES) ====================");
+        test_vtc(1,   8'sd50,   8'sd20,   8'sd30);   // Standard subtraction
+        test_vtc(2,  -8'sd50,   8'sd20,  -8'sd70);   // Negative - Positive
+        test_vtc(3,   8'sd100, -8'sd50,   8'sd127);  // Upper Saturation (> 127)
+        test_vtc(4,  -8'sd100,  8'sd50,  -8'sd128);  // Lower Saturation (< -128)
+        test_vtc(5,   8'sd0,    8'sd0,    8'sd0);    // Zero
+        test_vtc(6,   8'sd127,  8'sd0,    8'sd127);  // Max Positive boundary
+        test_vtc(7,  -8'sd128,  8'sd0,   -8'sd128);  // Min Negative boundary
+        test_vtc(8,  -8'sd60,  -8'sd60,   8'sd0);    // Equal Negative values
+        test_vtc(9,   8'sd80,  -8'sd47,   8'sd127);  // Upper Saturation boundary
+        test_vtc(10, -8'sd80,   8'sd49,  -8'sd128);  // Lower Saturation boundary
 
-        #10;
-        
-        $display("vtc_o[0] = %d (Expect: 30)", vtc_o[0]);
-        $display("vtc_o[1] = %d (Expect: 127 - Saturation)", vtc_o[1]);
-        $display("vtc_o[2] = %d (Expect: -128 - Saturation)", vtc_o[2]);
-
-        #10 $finish;
+        $finish;
     end
-
 endmodule

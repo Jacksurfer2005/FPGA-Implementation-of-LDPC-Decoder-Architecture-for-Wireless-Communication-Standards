@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber report"] 1786889561.47473 "report.bcf" "report.bbl" "report" 1786889729.66023 0
+["biber report"] 1786890137.32213 "report.bcf" "report.bbl" "report" 1787036310.9453 0
   "refs.bib" 1786889560 5148 99b0bd6cd2b855b722b4b813e86d2867 ""
-  "report.bcf" 1786889729 108417 232540cb6931af277c515e3fad8c12b3 "pdflatex"
+  "report.bcf" 1787036310 108417 232540cb6931af277c515e3fad8c12b3 "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1786889713.7703 "d:/BACH KHOA/253/TTNT/DoeLatexTemplate/report.tex" "report.pdf" "report" 1786889729.66111 0
+["pdflatex"] 1787036293.41965 "d:/BACH KHOA/253/TTNT/DoeLatexTemplate/report.tex" "report.pdf" "report" 1787036310.9461 0
   "C:/Users/ASUS/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1783052594 88371 b965f57369ed322039596060d18f4416 ""
   "C:/Users/ASUS/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1780757792 14064 98cb83acf7549c9caf7e1d3f6e3d9f36 ""
   "C:/Users/ASUS/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1783052688 13366575 d07abb7c7a6cac5740e15a44a2c4ae71 ""
@@ -301,8 +301,8 @@
   "C:/Users/ASUS/AppData/Local/Programs/MiKTeX/tex/latex/vntex/vietnam.sty" 1368738347 2477 91784aa2c9213f74609391e3cae65a13 ""
   "C:/Users/ASUS/AppData/Local/Programs/MiKTeX/tex/latex/vntex/vncaps.tex" 1368738347 3273 a55ebdb07413d2fea580f210e3c0b252 ""
   "C:/Users/ASUS/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "bkthesis.sty" 1786888414 7473 18c9f004e2623c42da032f9ffe3f833d ""
-  "d:/BACH KHOA/253/TTNT/DoeLatexTemplate/report.tex" 1786889713 135345 1b6771809eadf4f7a655122646a9f3f5 ""
+  "bkthesis.sty" 1787036286 7473 497a1ad86b60c46c84f229c7d51a3dc0 ""
+  "d:/BACH KHOA/253/TTNT/DoeLatexTemplate/report.tex" 1787036290 135320 7f622cc04a4c30635827563ccf3c5aba ""
   "images/FPGA LDPC decoder.png" 1785053086 25857 eee65aa7326acb6333aaab5920ab41cb ""
   "images/LDP_DECODER-ABS.drawio (1).png" 1786768126 566630 a211e671e5252b4437b8c7f0bffdb967 ""
   "images/LDP_DECODER-ABS.drawio (2).png" 1786768399 467514 c2313475d5e01993844ecf7ddc028469 ""
@@ -327,14 +327,14 @@
   "images/mode_select_waveform.png" 1786771881 69672 0ab508b869ab4950c1a0a025960f6439 ""
   "images/vtc_calc_waveform.png" 1786867913 69258 4c46d92e65b27363b86e49a1db855eaa ""
   "logobk.png" 1720864378 71082 38c5f95d579ecdf9e3ebe3a0f81470b1 ""
-  "report.aux" 1786889729 16804 4f85fbf0bf5ff6a305f3554d7bfe3fe6 "pdflatex"
-  "report.bbl" 1786889563 16555 3d9a70367a8c80b9ba817e23deeb6125 "biber report"
-  "report.lof" 1786889729 5821 c261228cf08e85d4599bc871230abe52 "pdflatex"
-  "report.lot" 1786889729 5592 f4ab67ccd688da0a1f9ced28e7de30ae "pdflatex"
-  "report.out" 1786889729 5753 087bdaaf13ae145574f97e65f7f5ccff "pdflatex"
-  "report.run.xml" 1786889729 2379 a8e85b0f96fed71ef052dcdbf9cebce7 "pdflatex"
-  "report.tex" 1786889713 135345 1b6771809eadf4f7a655122646a9f3f5 ""
-  "report.toc" 1786889729 5753 93f2a79a7eca5b73d6c2ba11f0d85944 "pdflatex"
+  "report.aux" 1787036310 16804 4f85fbf0bf5ff6a305f3554d7bfe3fe6 "pdflatex"
+  "report.bbl" 1786890139 16555 3d9a70367a8c80b9ba817e23deeb6125 "biber report"
+  "report.lof" 1787036310 5821 c261228cf08e85d4599bc871230abe52 "pdflatex"
+  "report.lot" 1787036310 5592 f4ab67ccd688da0a1f9ced28e7de30ae "pdflatex"
+  "report.out" 1787036310 5753 087bdaaf13ae145574f97e65f7f5ccff "pdflatex"
+  "report.run.xml" 1787036310 2379 a8e85b0f96fed71ef052dcdbf9cebce7 "pdflatex"
+  "report.tex" 1787036290 135320 7f622cc04a4c30635827563ccf3c5aba ""
+  "report.toc" 1787036310 5753 93f2a79a7eca5b73d6c2ba11f0d85944 "pdflatex"
   (generated)
   "report.aux"
   "report.bcf"

@@ -1,0 +1,136 @@
+`timescale 1ns/1ns
+
+module ldpc_top #(
+    parameter int Z = 24,         // Kích thước circulant
+    parameter int MB = 6,         // Số hàng ma trận cơ sở
+    parameter int NB = 24,        // Số cột ma trận cơ sở
+    parameter int DR_MAX = 7,     // Trọng số hàng tối đa
+    parameter int DW = 8          // Bề rộng dữ liệu (LLR)
+)(
+    input  logic          clk,
+    input  logic          rst_n,
+    input  logic          start,
+    
+    // Kênh nạp dữ liệu mềm (LLR) từ Demodulator
+    input  logic [DW-1:0] rx_llr [0:NB*Z-1], 
+    
+    output logic          done,
+    output logic [NB*Z-1:0] decoded_bits // Kết quả bit cứng
+);
+
+    //========================================================
+    // TÍN HIỆU NỘI BỘ VÀ QUẢN LÝ TRẠNG THÁI
+    //========================================================
+    logic count_en;
+    logic [7:0] iteration_count;
+    logic mode_out, ready_out;
+    
+    logic [$clog2(MB)-1:0] curr_layer;
+    logic [$clog2(DR_MAX)-1:0] curr_edge;
+    logic [$clog2(DR_MAX+1)-1:0] row_weight;
+    logic [$clog2(NB)-1:0] col_pos;
+    logic [$clog2(Z)-1:0] shift_val;
+    logic edge_valid;
+
+    //========================================================
+    // KHỞI TẠO CÁC MODULE ĐIỀU KHIỂN (Từ mode_select_top.sv)
+    //========================================================
+    mode_select_top u_mode_ctrl (
+        .clk             (clk),
+        .reset_n         (rst_n),
+        .start           (start),
+        .count_en        (count_en),
+        .max_iteration   (8'd10),       // Cài đặt tối đa 10 vòng lặp
+        .decoding_data   (8'h00),       // Tạm ẩn để minh họa
+        .result_data     (8'hFF), 
+        .iteration_count (iteration_count),
+        .done            (done),
+        .mode            (mode_out),
+        .ready           (ready_out),
+        .output_data     ()
+    );
+
+    //========================================================
+    // ROM LƯU TRỮ MA TRẬN
+    //========================================================
+    check_matrix_mem #(
+        .MB(MB), .NB(NB), .Z(Z), .Z0(96), .DR_MAX(DR_MAX), .INIT_WIDTH(8)
+    ) u_matrix (
+        .clk        (clk),
+        .layer      (curr_layer),
+        .edge_idx   (curr_edge),
+        .row_weight (row_weight),
+        .col_pos    (col_pos),
+        .shift      (shift_val),
+        .edge_valid (edge_valid)
+    );
+
+    //========================================================
+    // INSTANTIATE Z LÕI XỬ LÝ (PARALLEL CORES) 
+    //========================================================
+    // Bài báo yêu cầu xử lý song song nguyên 1 block Z
+    genvar i;
+    generate
+        for (i = 0; i < Z; i++) begin : gen_pe_cores
+            
+            // Các tín hiệu kết nối trong 1 PE (Processing Element)
+            logic [DW-1:0] vtc_in [1:7];
+            logic [DW-1:0] ctv_out [1:7];
+            logic [DW-1:0] min_val, submin_val;
+            
+            // Tạm thời fix cứng vtc_in cho luồng dữ liệu minh họa
+            // Trong thực tế, vtc_in này được lấy từ vtc_calc nối với BRAM APP
+            assign vtc_in[1] = 8'h05; // Mock data
+            assign vtc_in[2] = 8'h0A;
+            assign vtc_in[3] = 8'hF0; // -16 in 2's complement
+            assign vtc_in[4] = 8'h02;
+            assign vtc_in[5] = 8'h10;
+            assign vtc_in[6] = 8'h20;
+            assign vtc_in[7] = 8'h00;
+
+            min_submin u_min_submin (
+                .clk(clk), .rst_n(rst_n),
+                .vtc_1(vtc_in[1]), .vtc_2(vtc_in[2]), .vtc_3(vtc_in[3]), 
+                .vtc_4(vtc_in[4]), .vtc_5(vtc_in[5]), .vtc_6(vtc_in[6]), .vtc_7(vtc_in[7]),
+                
+                .ctv_1(ctv_out[1]), .ctv_2(ctv_out[2]), .ctv_3(ctv_out[3]), 
+                .ctv_4(ctv_out[4]), .ctv_5(ctv_out[5]), .ctv_6(ctv_out[6]), .ctv_7(ctv_out[7]),
+                
+                .min_o(min_val),
+                .submin_o(submin_val),
+                .vtc_o_1(), .vtc_o_2(), .vtc_o_3(), .vtc_o_4(),
+                .vtc_o_5(), .vtc_o_6(), .vtc_o_7(),
+                .rowWeight()
+            );
+            
+            // BRAM APP & BRAM CTV có thể được map tại đây cho từng node Z
+        end
+    endgenerate
+
+    // FSM Điều khiển giả lập
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            curr_layer <= '0;
+            curr_edge <= '0;
+            count_en <= 1'b0;
+        end else if (start && !done) begin
+            // Quét qua các cạnh của hàng
+            if (curr_edge < DR_MAX - 1) begin
+                curr_edge <= curr_edge + 1;
+                count_en <= 1'b0;
+            end else begin
+                curr_edge <= '0;
+                // Sang layer tiếp theo
+                if (curr_layer < MB - 1) begin
+                    curr_layer <= curr_layer + 1;
+                end else begin
+                    curr_layer <= '0;
+                    count_en <= 1'b1; // Hết 1 chu kỳ ma trận -> tăng vòng lặp
+                end
+            end
+        end else begin
+            count_en <= 1'b0;
+        end
+    end
+
+endmodule

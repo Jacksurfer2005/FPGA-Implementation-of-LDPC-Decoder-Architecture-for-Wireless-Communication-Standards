@@ -1,485 +1,241 @@
 `timescale 1ns/1ns
 
-// ============================================================================
-// LDPC TOP - integration of the currently implemented blocks
-//
-// This top-level follows the dataflow of the reference paper:
-//
-//   APP BRAM -> VTC = APP - CTV
-//             -> Min/Submin + sign
-//             -> CTVnew
-//             -> APPnew = VTC + CTVnew
-//             -> write APP/CTV back
-//             -> iteration control / result output
-//
-// IMPORTANT:
-// 1) The uploaded datapath is currently a 7-edge implementation
-//    (dr_max = 7), not the full z-core architecture of the paper.
-// 2) Therefore this top processes one scalar position per cycle and
-//    reuses the 7-edge datapath for the selected parity-check row.
-// 3) The current BRAM modules are wrapped here with WIDTH = DR_MAX*DW = 56.
-//    This is intentional: the supplied BRAM default WIDTH=144 is not
-//    consistent with Z=24 and DW=8 (which would require 192 bits).
-// 4) The exact paper architecture uses z parallel cores and rotated APP
-//    addressing. The present top includes the shift information from
-//    check_matrix_mem but does not claim full z-core parallelism.
-// 5) Required source files not uploaded with this message are:
-//      fa_calc.sv, abs_calc.sv, signs_xoring.sv,
-//      comp_tree.sv, sign_insertion.sv, iter_compare.sv
-// ============================================================================
-
 module ldpc_top #(
-    parameter int DW           = 8,
-    parameter int Z            = 24,
-    parameter int MB           = 6,
-    parameter int NB           = 24,
-    parameter int DR_MAX       = 7,
-    parameter int MAX_ITER     = 8,
-    parameter int Z0           = 96,
-    parameter string INIT_FILE = "0_src/h_base.mem"
+    parameter int Z  = 24,
+    parameter int DW = 8,
+    parameter int MB = 6,
+    parameter int NB = 24
 )(
-    input  logic                         clk,
-    input  logic                         reset_n,
-    input  logic                         start,
+    input  logic        clk,
+    input  logic        rst_n,
+    input  logic        start,             // Xung khởi tạo giải mã khung dữ liệu mới[cite: 21, 27]
+    input  logic        count_en,          // Xung báo kết thúc 1 vòng lặp (iter_done)[cite: 21, 27]
+    input  logic        converged,         // Tín hiệu báo hội tụ Hx = 0[cite: 21, 27]
+    input  logic [7:0]  max_iteration,     // Cấu hình số vòng lặp tối đa[cite: 21, 27]
 
-    // Initial soft information.
-    // One word contains DR_MAX signed DW-bit values.
-    input  logic [DR_MAX*DW-1:0]         app_init_data,
-    input  logic                         app_init_valid,
+    // Giao tiếp nạp dữ liệu LLR ban đầu vào BRAM APP[cite: 23]
+    input  logic                     ext_app_we,
+    input  logic [4:0]               ext_app_addr,
+    input  logic [Z*DW-1:0]          ext_app_din,
 
-    // Decoded result.
-    output logic [NB*DW-1:0]             decoded_data,
-    output logic                         ready,
-    output logic                         busy,
-    output logic                         done,
-    output logic [DW-1:0]                decoding_data,
+    // Giao tiếp địa chỉ quét ma trận kiểm tra (FSM điều khiển bên ngoài)[cite: 23, 24, 25]
+    input  logic [4:0]               app_rd_addr,
+    input  logic [4:0]               app_wr_addr,
+    input  logic [6:0]               ctv_rd_addr,
+    input  logic [6:0]               ctv_wr_addr,
+    input  logic [$clog2(MB)-1:0]    matrix_layer,
+    input  logic [3:0]               matrix_edge_idx,
 
-    output logic [$clog2(MAX_ITER+1)-1:0] iteration_count
+    // Tín hiệu ngõ ra điều khiển và dữ liệu giải mã
+    output logic        ready,             // Tín hiệu sẵn sàng xuất dữ liệu[cite: 21]
+    output logic        done,              // Tín hiệu hoàn thành giải mã[cite: 21, 27]
+    output logic        mode,              // 0: DECODING, 1: RESULT OUTPUT[cite: 21]
+    output logic [7:0]  iteration_count,   // Số vòng lặp hiện tại[cite: 21]
+    output logic [7:0]  output_data        // Dữ liệu ngõ ra[cite: 21]
 );
 
-    localparam int WORD_W  = DR_MAX * DW;
-    localparam int LAYER_W = (MB <= 1) ? 1 : $clog2(MB);
-    localparam int EDGE_W  = (DR_MAX <= 1) ? 1 : $clog2(DR_MAX);
-    localparam int Z_W     = (Z <= 1) ? 1 : $clog2(Z);
-    localparam int APP_AW  = (24 <= 1) ? 1 : $clog2(24);
-    localparam logic [7:0] MAX_ITER_W = MAX_ITER;
+    // =========================================================================
+    // TÍN HIỆU KẾT NỐI NỘI BỘ (INTERNAL WIRES)
+    // =========================================================================
 
-    // ------------------------------------------------------------------------
-    // State machine
-    // ------------------------------------------------------------------------
-    typedef enum logic [3:0] {
-        S_IDLE,
-        S_INIT_WRITE,
-        S_MATRIX_REQ,
-        S_APP_READ,
-        S_CTV_READ,
-        S_CALC,
-        S_WRITEBACK,
-        S_NEXT_EDGE,
-        S_NEXT_LAYER,
-        S_ITER_DONE,
-        S_RESULT
-    } state_t;
+    // 1. Dữ liệu BRAM APP[cite: 23]
+    logic [Z*DW-1:0]           bram_app_dout;
+    logic [Z*DW-1:0]           bram_app_din;
+    logic [4:0]                bram_app_wr_addr;
+    logic                      bram_app_we;
 
-    state_t state;
+    // 2. Dữ liệu BRAM CTV[cite: 24]
+    logic [Z*DW-1:0]           bram_ctv_dout;
+    logic [Z*DW-1:0]           bram_ctv_din;
 
-    logic [LAYER_W-1:0] layer;
-    logic [EDGE_W-1:0]  edge_idx;
-    logic [Z_W-1:0]     z_index;
+    // 3. Tín hiệu Memory Check Matrix
+    logic [$clog2(16)-1:0]     row_weight;
+    logic [$clog2(NB)-1:0]     col_pos;
+    logic [$clog2(Z)-1:0]      shift_val;
+    logic                      edge_valid;
 
-    // ------------------------------------------------------------------------
-    // Matrix information
-    // ------------------------------------------------------------------------
-    logic [3:0] row_weight;
-    logic [LAYER_W-1:0] cm_layer;
-    logic [EDGE_W-1:0]  cm_edge_idx;
-    logic [EDGE_W-1:0]  cm_edge_idx_safe;
+    // 4. Tín hiệu VTC (Chuyển đổi kiểu dữ liệu Packed <-> Unpacked)[cite: 22]
+    logic signed [Z-1:0][DW-1:0] vtc_app_in;
+    logic signed [Z-1:0][DW-1:0] vtc_ctv_in;
+    logic signed [Z-1:0][DW-1:0] vtc_out;
 
-    logic [NB-1:0] col_pos;
-    logic [Z_W-1:0] shift;
-    logic edge_valid;
+    // 5. Tín hiệu Min/Submin Calculation[cite: 28]
+    logic [DW-1:0]             min_val;
+    logic [DW-1:0]             submin_val;
+    logic [3:0]                min_row_weight;
+    logic [DW-1:0]             ctv_stage1 [1:7];
 
-    assign cm_layer       = layer;
-    assign cm_edge_idx    = edge_idx;
-    assign cm_edge_idx_safe = edge_idx;
+    // 6. Tín hiệu CTV & APP mới (Sau tính toán)[cite: 26]
+    logic [DW-1:0]             ctv_new [1:7];
+    logic [DW-1:0]             app_new [1:7];
 
-    check_matrix_mem #(
-        .MB          (MB),
-        .NB          (NB),
-        .Z           (Z),
-        .Z0          (Z0),
-        .DR_MAX      (DR_MAX),
-        .INIT_WIDTH  (8),
-        .INIT_FILE   (INIT_FILE)
+    // 7. Tín hiệu đếm vòng lặp độc lập[cite: 27]
+    logic [4:0]                standalone_iter_cnt;
+    logic                      standalone_done;
+
+    // =========================================================================
+    // GHÉP VÀ BIẾN ĐỔI DỮ LIỆU (DATA PACKING & BUS MATCHING)
+    // =========================================================================
+    
+    // Tách 192-bit BRAM dout thành mảng 24 phần tử 8-bit cho vtc_calc[cite: 22, 23, 24]
+    always_comb begin
+        for (int i = 0; i < Z; i++) begin
+            vtc_app_in[i] = bram_app_dout[i*DW +: DW];
+            vtc_ctv_in[i] = bram_ctv_dout[i*DW +: DW];
+        end
+    end
+
+    // Đóng gói các phần tử APP_new và CTV_new mới thành Bus 192-bit để ghi vào BRAM
+    always_comb begin
+        bram_app_din = '0;
+        bram_ctv_din = '0;
+        for (int i = 0; i < 7; i++) begin
+            bram_app_din[i*DW +: DW] = app_new[i+1];
+            bram_ctv_din[i*DW +: DW] = ctv_new[i+1];
+        end
+    end
+
+    // Lựa chọn cổng ghi BRAM APP (Nạp từ ngoài vs Cập nhật APP_new khi giải mã)[cite: 21, 23]
+    assign bram_app_we      = ext_app_we ? 1'b1 : (mode ? 1'b0 : 1'b1);
+    assign bram_app_wr_addr = ext_app_we ? ext_app_addr : app_wr_addr;
+
+    // =========================================================================
+    // NỐI 8 MODULE CON (SUB-MODULE INSTANTIATION)
+    // =========================================================================
+
+    // MODULE 1: BRAM APP (Lưu trữ Log-Likelihood Ratios)[cite: 23]
+    bram_app #(
+        .DEPTH(Z),
+        .WIDTH(Z*DW)
+    ) u_bram_app (
+        .clk    (clk),
+        .a_en   (1'b1),
+        .a_addr (app_rd_addr),
+        .a_dout (bram_app_dout),
+        .b_we   (bram_app_we),
+        .b_addr (bram_app_wr_addr),
+        .b_din  (ext_app_we ? ext_app_din : bram_app_din)
+    );
+
+    // MODULE 2: Operating Mode Selection (Quản lý trạng thái giải mã / xuất kết quả)[cite: 21]
+    mode_select_top u_mode_select_top (
+        .clk             (clk),
+        .reset_n         (rst_n),
+        .start           (start),
+        .count_en        (count_en),
+        .converged       (converged),
+        .max_iteration   (max_iteration),
+        .decoding_data   (bram_app_dout[7:0]),
+        .result_data     (app_new[1]),
+        .iteration_count (iteration_count),
+        .done            (done),
+        .mode            (mode),
+        .ready           (ready),
+        .output_data     (output_data)
+    );
+
+    // MODULE 3: Iterations Counter (Bộ đếm số vòng lặp độc lập)[cite: 27]
+    iter_counter #(
+        .DONE(1)
+    ) u_iter_counter (
+        .clk       (clk),
+        .rst_n     (rst_n),
+        .clear     (start),
+        .iter_done (count_en),
+        .converged (converged),
+        .max_iter  (max_iteration[4:0]),
+        .iter_cnt  (standalone_iter_cnt),
+        .done      (standalone_done)
+    );
+
+    // MODULE 4: Memory for Check Matrix (Lưu cấu trúc ma trận H_b nén)[cite: 25]
+    check_matrix #(
+        .MB(MB),
+        .NB(NB),
+        .Z(Z)
     ) u_check_matrix (
         .clk        (clk),
-        .layer      (cm_layer),
-        .edge_idx   (cm_edge_idx_safe),
+        .layer      (matrix_layer),
+        .edge_idx   (matrix_edge_idx),
         .row_weight (row_weight),
         .col_pos    (col_pos),
-        .shift      (shift),
+        .shift      (shift_val),
         .edge_valid (edge_valid)
     );
 
-    // ------------------------------------------------------------------------
-    // APP and CTV memories
-    //
-    // The supplied BRAM modules have fixed 24-deep storage.  We use one
-    // DR_MAX*DW word per address for this 7-edge implementation.
-    // ------------------------------------------------------------------------
-    logic [WORD_W-1:0] app_mem_dout;
-    logic [WORD_W-1:0] ctv_mem_dout;
-
-    logic              app_rd_en;
-    logic [4:0]        app_rd_addr;
-    logic              app_wr_en;
-    logic [4:0]        app_wr_addr;
-    logic [WORD_W-1:0] app_wr_data;
-    logic [WORD_W-1:0] app_new_word;
-
-    logic              ctv_rd_en;
-    logic [6:0]        ctv_rd_addr;
-    logic              ctv_wr_en;
-    logic [6:0]        ctv_wr_addr;
-    logic [WORD_W-1:0] ctv_wr_data;
-    logic [WORD_W-1:0] ctv_new_word;
-
-    bram_app #(
-        .DEPTH (24),
-        .WIDTH (WORD_W)
-    ) u_bram_app (
-        .clk    (clk),
-        .a_en   (app_rd_en),
-        .a_addr (app_rd_addr),
-        .a_dout (app_mem_dout),
-        .b_we   (app_wr_en),
-        .b_addr (app_wr_addr),
-        .b_din  (app_wr_data)
+    // MODULE 5: VTC Calculation (Tính VTC = APP - CTV)[cite: 22]
+    vtc_calc #(
+        .DW(DW),
+        .Z(Z)
+    ) u_vtc_calc (
+        .app_i (vtc_app_in),
+        .ctv_i (vtc_ctv_in),
+        .vtc_o (vtc_out)
     );
 
+    // MODULE 6: Min/Submin Calculation (Tính Min1, Min2 và nhân hệ số Alpha = 0.75)[cite: 28]
+    min_submin u_min_submin (
+        .clk       (clk),
+        .rst_n     (rst_n),
+        .vtc_1     (vtc_out[0]),
+        .vtc_2     (vtc_out[1]),
+        .vtc_3     (vtc_out[2]),
+        .vtc_4     (vtc_out[3]),
+        .vtc_5     (vtc_out[4]),
+        .vtc_6     (vtc_out[5]),
+        .vtc_7     (vtc_out[6]),
+        .ctv_1     (ctv_stage1[1]),
+        .ctv_2     (ctv_stage1[2]),
+        .ctv_3     (ctv_stage1[3]),
+        .ctv_4     (ctv_stage1[4]),
+        .ctv_5     (ctv_stage1[5]),
+        .ctv_6     (ctv_stage1[6]),
+        .ctv_7     (ctv_stage1[7]),
+        .min_o     (min_val),
+        .submin_o  (submin_val),
+        .rowWeight (min_row_weight)
+    );
+
+    // MODULE 7: CTV and APP Calculation (Cập nhật CTV_new và APP_new)[cite: 26]
+    ctv_app_calc u_ctv_app_calc (
+        .min_i     (min_val),
+        .submin_i  (submin_val),
+        .vtc_1     (vtc_out[0]),
+        .vtc_2     (vtc_out[1]),
+        .vtc_3     (vtc_out[2]),
+        .vtc_4     (vtc_out[3]),
+        .vtc_5     (vtc_out[4]),
+        .vtc_6     (vtc_out[5]),
+        .vtc_7     (vtc_out[6]),
+        .rowWeight (min_row_weight),
+        .ctv_new_1 (ctv_new[1]),
+        .ctv_new_2 (ctv_new[2]),
+        .ctv_new_3 (ctv_new[3]),
+        .ctv_new_4 (ctv_new[4]),
+        .ctv_new_5 (ctv_new[5]),
+        .ctv_new_6 (ctv_new[6]),
+        .ctv_new_7 (ctv_new[7]),
+        .app_new_1 (app_new[1]),
+        .app_new_2 (app_new[2]),
+        .app_new_3 (app_new[3]),
+        .app_new_4 (app_new[4]),
+        .app_new_5 (app_new[5]),
+        .app_new_6 (app_new[6]),
+        .app_new_7 (app_new[7])
+    );
+
+    // MODULE 8: BRAM CTV (Lưu trữ tin nhắn Check-to-Variable)[cite: 24]
     bram_ctv #(
-        .DEPTH (24),
-        .WIDTH (WORD_W)
+        .DEPTH(Z),
+        .WIDTH(Z*DW)
     ) u_bram_ctv (
         .clk     (clk),
-        .rd_en   (ctv_rd_en),
+        .rd_en   (1'b1),
         .rd_addr (ctv_rd_addr),
-        .rd_data (ctv_mem_dout),
-        .wr_en   (ctv_wr_en),
+        .rd_data (bram_ctv_dout),
+        .wr_en   (!mode), // Khóa ghi khi đã ở RESULT mode
         .wr_addr (ctv_wr_addr),
-        .wr_data (ctv_wr_data)
+        .wr_data (bram_ctv_din)
     );
-
-    // ------------------------------------------------------------------------
-    // Seven VTC/CTV lanes
-    // ------------------------------------------------------------------------
-    logic signed [DW-1:0] app_lane [0:DR_MAX-1];
-    logic signed [DW-1:0] ctv_lane [0:DR_MAX-1];
-    logic signed [DW-1:0] vtc_lane [0:DR_MAX-1];
-
-    logic signed [DW-1:0] ctv_new [0:DR_MAX-1];
-    logic signed [DW-1:0] app_new [0:DR_MAX-1];
-
-    logic [7:0] min_o;
-    logic [7:0] submin_o;
-    logic [7:0] vtc_o [0:DR_MAX-1];
-    logic [3:0] calc_row_weight;
-
-    // Unpack BRAM words.
-    genvar g;
-    generate
-        for (g = 0; g < DR_MAX; g = g + 1) begin : G_UNPACK
-            always_comb begin
-                app_lane[g] = $signed(app_mem_dout[g*DW +: DW]);
-                ctv_lane[g] = $signed(ctv_mem_dout[g*DW +: DW]);
-            end
-        end
-    endgenerate
-
-    // VTC = APP - CTV.
-    //
-    // The supplied vtc_calc is parameterized by Z.  For the current
-    // 7-edge implementation we instantiate it with Z=DR_MAX.
-    logic signed [DR_MAX-1:0][DW-1:0] app_vec;
-    logic signed [DR_MAX-1:0][DW-1:0] ctv_vec;
-    logic signed [DR_MAX-1:0][DW-1:0] vtc_vec;
-
-    generate
-        for (g = 0; g < DR_MAX; g = g + 1) begin : G_VEC
-            always_comb begin
-                app_vec[g] = app_lane[g];
-                ctv_vec[g] = ctv_lane[g];
-            end
-        end
-    endgenerate
-
-    vtc_calc #(
-        .DW (DW),
-        .Z  (DR_MAX)
-    ) u_vtc_calc (
-        .app_i (app_vec),
-        .ctv_i (ctv_vec),
-        .vtc_o (vtc_vec)
-    );
-
-    // Min/submin block has seven scalar inputs.
-    min_submin_calc u_min_submin (
-        .vtc_1 (vtc_vec[0]),
-        .vtc_2 (vtc_vec[1]),
-        .vtc_3 (vtc_vec[2]),
-        .vtc_4 (vtc_vec[3]),
-        .vtc_5 (vtc_vec[4]),
-        .vtc_6 (vtc_vec[5]),
-        .vtc_7 (vtc_vec[6]),
-
-        .ctv_1 (ctv_new[0]),
-        .ctv_2 (ctv_new[1]),
-        .ctv_3 (ctv_new[2]),
-        .ctv_4 (ctv_new[3]),
-        .ctv_5 (ctv_new[4]),
-        .ctv_6 (ctv_new[5]),
-        .ctv_7 (ctv_new[6]),
-
-        .min_o (min_o),
-        .submin_o (submin_o),
-
-        .vtc_o_1 (vtc_o[0]),
-        .vtc_o_2 (vtc_o[1]),
-        .vtc_o_3 (vtc_o[2]),
-        .vtc_o_4 (vtc_o[3]),
-        .vtc_o_5 (vtc_o[4]),
-        .vtc_o_6 (vtc_o[5]),
-        .vtc_o_7 (vtc_o[6]),
-
-        .rowWeight (calc_row_weight)
-    );
-
-    // APPnew = VTC + CTVnew.
-    ctv_app_calc u_ctv_app_calc (
-        .vtc_1 (vtc_o[0]),
-        .vtc_2 (vtc_o[1]),
-        .vtc_3 (vtc_o[2]),
-        .vtc_4 (vtc_o[3]),
-        .vtc_5 (vtc_o[4]),
-        .vtc_6 (vtc_o[5]),
-        .vtc_7 (vtc_o[6]),
-
-        .ctv_1 (ctv_new[0]),
-        .ctv_2 (ctv_new[1]),
-        .ctv_3 (ctv_new[2]),
-        .ctv_4 (ctv_new[3]),
-        .ctv_5 (ctv_new[4]),
-        .ctv_6 (ctv_new[5]),
-        .ctv_7 (ctv_new[6]),
-
-        .app_1 (app_new[0]),
-        .app_2 (app_new[1]),
-        .app_3 (app_new[2]),
-        .app_4 (app_new[3]),
-        .app_5 (app_new[4]),
-        .app_6 (app_new[5]),
-        .app_7 (app_new[6])
-    );
-
-    // ------------------------------------------------------------------------
-    // Iteration / mode control
-    // ------------------------------------------------------------------------
-    logic count_en;
-    logic start_counter;
-    logic [7:0] iter_count_internal;
-    logic [DW-1:0] result_byte;
-
-    // The supplied mode_select_top uses the supplied iteration_counter and
-    // iter_compare.  It controls decoding/result mode.
-    mode_select_top u_mode_select (
-        .clk            (clk),
-        .reset_n        (reset_n),
-        .start          (start_counter),
-        .count_en       (count_en),
-        .max_iteration  (MAX_ITER_W),
-        .decoding_data  (decoding_data),
-        .result_data    (result_byte),
-        .iteration_count(iter_count_internal),
-        .done           (done),
-        .mode           (),
-        .ready          (ready),
-        .output_data    (decoding_data)
-    );
-
-    assign iteration_count = iter_count_internal[$clog2(MAX_ITER+1)-1:0];
-
-    // ------------------------------------------------------------------------
-    // Pack APP/CTV result for memory writeback.
-    // ------------------------------------------------------------------------
-    integer i;
-
-    always_comb begin
-        app_new_word = '0;
-        ctv_new_word = '0;
-
-        for (i = 0; i < DR_MAX; i = i + 1) begin
-            app_new_word[i*DW +: DW] = app_new[i];
-            ctv_new_word[i*DW +: DW] = ctv_new[i];
-        end
-    end
-
-    // ------------------------------------------------------------------------
-    // Result collection.
-    //
-    // This version exposes one selected decoded byte on decoding_data and
-    // collects one byte per NB position into decoded_data.  The full paper
-    // implementation would output all z cores in parallel.
-    // ------------------------------------------------------------------------
-    logic [NB*DW-1:0] decoded_reg;
-
-    assign decoded_data = decoded_reg;
-    assign result_byte = decoded_reg[DW-1:0];
-
-    always_comb begin
-        if (z_index < Z)
-            decoding_data = app_mem_dout[DW-1:0];
-        else
-            decoding_data = '0;
-    end
-
-
-    // ------------------------------------------------------------------------
-    // Main controller
-    // ------------------------------------------------------------------------
-    always_ff @(posedge clk or negedge reset_n) begin
-        if (!reset_n) begin
-            state          <= S_IDLE;
-            layer          <= '0;
-            edge_idx       <= '0;
-            z_index        <= '0;
-            decoded_reg    <= '0;
-            app_rd_en      <= 1'b0;
-            app_rd_addr    <= '0;
-            app_wr_en      <= 1'b0;
-            app_wr_addr    <= '0;
-            app_wr_data    <= '0;
-            ctv_rd_en      <= 1'b0;
-            ctv_rd_addr    <= '0;
-            ctv_wr_en      <= 1'b0;
-            ctv_wr_addr    <= '0;
-            ctv_wr_data    <= '0;
-            count_en       <= 1'b0;
-            start_counter  <= 1'b0;
-            busy           <= 1'b0;
-        end
-        else begin
-            // Defaults: pulse-type controls.
-            app_rd_en     <= 1'b0;
-            app_wr_en     <= 1'b0;
-            ctv_rd_en     <= 1'b0;
-            ctv_wr_en     <= 1'b0;
-            count_en      <= 1'b0;
-            start_counter <= 1'b0;
-
-            case (state)
-
-                S_IDLE: begin
-                    busy <= 1'b0;
-
-                    if (start) begin
-                        busy          <= 1'b1;
-                        layer         <= '0;
-                        edge_idx      <= '0;
-                        z_index       <= '0;
-                        decoded_reg   <= '0;
-                        start_counter <= 1'b1;
-                        state         <= S_INIT_WRITE;
-                    end
-                end
-
-                // Write the first APP word supplied by the user.
-                // CTV starts at zero.
-                S_INIT_WRITE: begin
-                    app_wr_en   <= app_init_valid;
-                    app_wr_addr <= 5'd0;
-                    app_wr_data <= app_init_data;
-
-                    ctv_wr_en   <= app_init_valid;
-                    ctv_wr_addr <= 7'd0;
-                    ctv_wr_data <= '0;
-
-                    if (app_init_valid)
-                        state <= S_MATRIX_REQ;
-                end
-
-                // Ask check-matrix memory for the current layer/edge.
-                S_MATRIX_REQ: begin
-                    state <= S_APP_READ;
-                end
-
-                // BRAMs are synchronous; issue read.
-                S_APP_READ: begin
-                    app_rd_en   <= 1'b1;
-                    app_rd_addr <= z_index;
-                    state       <= S_CTV_READ;
-                end
-
-                S_CTV_READ: begin
-                    ctv_rd_en   <= 1'b1;
-                    ctv_rd_addr <= z_index;
-                    state       <= S_CALC;
-                end
-
-                // Datapath is combinational, so results are available here.
-                S_CALC: begin
-                    state <= S_WRITEBACK;
-                end
-
-                S_WRITEBACK: begin
-                    app_wr_en   <= 1'b1;
-                    app_wr_addr <= z_index;
-                    app_wr_data <= app_new_word;
-
-                    ctv_wr_en   <= 1'b1;
-                    ctv_wr_addr <= z_index;
-                    ctv_wr_data <= ctv_new_word;
-
-                    state <= S_NEXT_EDGE;
-                end
-
-                S_NEXT_EDGE: begin
-                    if (edge_idx == DR_MAX-1) begin
-                        edge_idx <= '0;
-                        state    <= S_NEXT_LAYER;
-                    end
-                    else begin
-                        edge_idx <= edge_idx + 1'b1;
-                        state    <= S_MATRIX_REQ;
-                    end
-                end
-
-                S_NEXT_LAYER: begin
-                    if (layer == MB-1) begin
-                        layer <= '0;
-                        count_en <= 1'b1;
-
-                        if (iter_count_internal + 1 >= MAX_ITER)
-                            state <= S_RESULT;
-                        else
-                            state <= S_MATRIX_REQ;
-                    end
-                    else begin
-                        layer <= layer + 1'b1;
-                        state <= S_MATRIX_REQ;
-                    end
-                end
-
-                S_RESULT: begin
-                    busy <= 1'b0;
-                    state <= S_IDLE;
-                end
-
-                default: begin
-                    state <= S_IDLE;
-                end
-
-            endcase
-        end
-    end
 
 endmodule

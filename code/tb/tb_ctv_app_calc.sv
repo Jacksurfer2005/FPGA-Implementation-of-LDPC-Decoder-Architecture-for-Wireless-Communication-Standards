@@ -1,60 +1,56 @@
 `timescale 1ns/1ns
 
-module tb_ctv_app_calc();
-    logic clk;
-    logic [7:0] vtc[7];
-    logic [7:0] ctv[7];
-    logic [7:0] app_1, app_2, app_3, app_4, app_5, app_6, app_7;
+module tb_ctv_app_calc;
+    logic signed [7:0] min_i;
+    logic signed [7:0] submin_i;
+    logic signed [7:0] vtc_i;
+    logic signed [7:0] app_old;
+    logic signed [7:0] ctv_o;
+    logic signed [7:0] app_new;
 
     ctv_app_calc dut (
-        .vtc_1(vtc[0]), .vtc_2(vtc[1]), .vtc_3(vtc[2]), .vtc_4(vtc[3]),
-        .vtc_5(vtc[4]), .vtc_6(vtc[5]), .vtc_7(vtc[6]),
-        .ctv_1(ctv[0]), .ctv_2(ctv[1]), .ctv_3(ctv[2]), .ctv_4(ctv[3]),
-        .ctv_5(ctv[4]), .ctv_6(ctv[5]), .ctv_7(ctv[6]),
-        .app_1(app_1), .app_2(app_2), .app_3(app_3), .app_4(app_4),
-        .app_5(app_5), .app_6(app_6), .app_7(app_7)
+        .min_i(min_i),
+        .submin_i(submin_i),
+        .vtc_i(vtc_i),
+        .app_old(app_old),
+        .ctv_o(ctv_o),
+        .app_new(app_new)
     );
 
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk;
-    end
+    task test_ctv_app(
+        input int                tc,
+        input logic signed [7:0] min_v,
+        input logic signed [7:0] submin_v,
+        input logic signed [7:0] vtc_v,
+        input logic signed [7:0] app_v,
+        input logic signed [7:0] exp_ctv,
+        input logic signed [7:0] exp_app
+    );
+        min_i    = min_v;
+        submin_i = submin_v;
+        vtc_i    = vtc_v;
+        app_old  = app_v;
+        #5;
+        $display("[TC %02d] Min:%d Sub:%d VTC:%d APP_old:%d => CTV:%d APP_new:%d (Exp CTV:%d, APP:%d) | %s",
+                 tc, min_v, submin_v, vtc_v, app_v, ctv_o, app_new, exp_ctv, exp_app,
+                 (ctv_o == exp_ctv && app_new == exp_app) ? "PASS" : "FAIL");
+    endtask
 
     initial begin
         $dumpfile("tb_ctv_app_calc.vcd");
         $dumpvars(0, tb_ctv_app_calc);
-    end
 
-    initial begin
-        $monitor("Time = %0t | vtc1 = %h | ctv1 = %h | app1 = %h | app2 = %h | app3 = %h | app4 = %h",
-                 $time, vtc[0], ctv[0], app_1, app_2, app_3, app_4);
-    end
-
-    initial begin
-        // Case 1: Cộng số dương
-        vtc = '{8'd1, 8'd2, 8'd3, 8'd4, 8'd5, 8'd6, 8'd7};
-        ctv = '{8'd10, 8'd10, 8'd10, 8'd10, 8'd10, 8'd10, 8'd10}; #10;
-        // Case 2: vtc = 0
-        vtc = '{8'd0, 8'd0, 8'd0, 8'd0, 8'd0, 8'd0, 8'd0};
-        ctv = '{8'd5, 8'd15, 8'd25, 8'd35, 8'd45, 8'd55, 8'd65}; #10;
-        // Case 3: ctv = 0
-        vtc = '{8'd8, 8'd18, 8'd28, 8'd38, 8'd48, 8'd58, 8'd68};
-        ctv = '{8'd0, 8'd0, 8'd0, 8'd0, 8'd0, 8'd0, 8'd0}; #10;
-        // Case 4: Tràn số có dấu
-        vtc = '{8'd120, 8'd121, 8'd122, 8'd123, 8'd124, 8'd125, 8'd126};
-        ctv = '{8'd10, 8'd10, 8'd10, 8'd10, 8'd10, 8'd10, 8'd10}; #10;
-        // Case 5: Cộng với số âm
-        vtc = '{8'd50, 8'd50, 8'd50, 8'd50, 8'd50, 8'd50, 8'd50};
-        ctv = '{8'hFF, 8'hFE, 8'hFD, 8'hFC, 8'hFB, 8'hFA, 8'hF9}; #10;
-        // Case 6: Tràn số không dấu
-        vtc = '{8'hFF, 8'hFF, 8'hFF, 8'hFF, 8'hFF, 8'hFF, 8'hFF};
-        ctv = '{8'd1, 8'd2, 8'd3, 8'd4, 8'd5, 8'd6, 8'd7}; #10;
-        // Case 7: Cả hai âm
-        vtc = '{8'hFE, 8'hFE, 8'hFE, 8'hFE, 8'hFE, 8'hFE, 8'hFE};
-        ctv = '{8'hFF, 8'hFF, 8'hFF, 8'hFF, 8'hFF, 8'hFF, 8'hFF}; #10;
-        // Case 8: Ngẫu nhiên
-        vtc = '{8'd23, 8'd45, 8'hE1, 8'd0, 8'd99, 8'h80, 8'h7F};
-        ctv = '{8'h12, 8'd11, 8'h05, 8'd88, 8'd1, 8'hFF, 8'h01}; #10;
+        $display("==================== TB CTV_APP_CALC (10 CASES) ====================");
+        test_ctv_app(1,  8'sd10, 8'sd15,  8'sd20,  8'sd50,  8'sd10,  8'sd60);
+        test_ctv_app(2,  8'sd10, 8'sd15,  8'sd10,  8'sd50,  8'sd15,  8'sd65);
+        test_ctv_app(3,  8'sd10, 8'sd15, -8'sd20,  8'sd50, -8'sd10,  8'sd40);
+        test_ctv_app(4,  8'sd10, 8'sd15, -8'sd10,  8'sd50, -8'sd15,  8'sd35);
+        test_ctv_app(5,  8'sd0,  8'sd5,   8'sd10,  8'sd20,  8'sd0,   8'sd20);
+        test_ctv_app(6,  8'sd20, 8'sd30,  8'sd25,  8'sd100, 8'sd20,  8'sd120);
+        test_ctv_app(7,  8'sd50, 8'sd60,  8'sd50,  8'sd100, 8'sd60,  8'sd127); // Saturation
+        test_ctv_app(8,  8'sd50, 8'sd60, -8'sd80, -8'sd100,-8'sd50, -8'sd128); // Saturation
+        test_ctv_app(9,  8'sd5,  8'sd12, -8'sd5,   8'sd0,  -8'sd12, -8'sd12);
+        test_ctv_app(10, 8'sd30, 8'sd40,  8'sd30, -8'sd10,  8'sd40,  8'sd30);
 
         $finish;
     end

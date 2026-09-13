@@ -7,7 +7,7 @@ module iter_compare (
 );
 
     logic [7:0] diff;
-    logic              co;
+    logic co;
 
     fa_calc u_fa_compare (
         .A   (iteration_count),

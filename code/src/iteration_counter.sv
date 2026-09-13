@@ -9,7 +9,7 @@ module iteration_counter (
 );
 
     logic [7:0] count_plus_one;
-    logic              carry_unused;
+    logic       carry_unused;
 
     fa_calc u_fa_increment (
         .A   (count),

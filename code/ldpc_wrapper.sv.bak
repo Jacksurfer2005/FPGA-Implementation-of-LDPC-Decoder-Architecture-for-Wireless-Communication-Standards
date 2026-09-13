@@ -1,0 +1,66 @@
+module ldpc_wrapper(
+    input  logic        CLOCK_50, // Xung nhịp 50MHz trên kit DE2
+    input  logic [17:0] SW,       // 18 Switches
+    input  logic [3:0]  KEY,      // 4 Push buttons (tích cực mức thấp)
+    output logic [17:0] LEDR,     // 18 Red LEDs
+    output logic [8:0]  LEDG      // 9 Green LEDs
+);
+
+    //========================================================
+    // KHAI BÁO CÁC TÍN HIỆU KẾT NỐI VỚI DUT
+    //========================================================
+    localparam int Z = 24;
+    localparam int NB = 24;
+    localparam int DW = 8;
+    
+    logic [DW-1:0] rx_llr [0:NB*Z-1]; 
+    logic [NB*Z-1:0] decoded_bits;
+    logic done;
+
+    //========================================================
+    // XỬ LÝ GÁN TÍN HIỆU NGÕ VÀO (Do DE2 thiếu chân vật lý)
+    //========================================================
+    // Dùng SW[17] làm tín hiệu start
+    logic start;
+    assign start = SW[17];
+
+    // Tạo dữ liệu giả (mock data) cho mảng rx_llr dựa vào 8 switch đầu tiên
+    always_comb begin
+        for (int i = 0; i < (NB*Z); i++) begin
+            if (i == 0) 
+                rx_llr[i] = SW[7:0]; // Gán phần tử đầu tiên bằng SW[7:0]
+            else 
+                rx_llr[i] = 8'h00;   // Các phần tử còn lại gán bằng 0
+        end
+    end
+
+    //========================================================
+    // INSTANTIATE MODULE LDPC_TOP
+    //========================================================
+    ldpc_top #(
+        .Z(Z), 
+        .MB(6), 
+        .NB(NB), 
+        .DR_MAX(7), 
+        .DW(DW)
+    ) ldpc_wrapper_dut (
+        .clk(CLOCK_50),       // Dùng clock 50MHz của DE2
+        .rst_n(KEY[0]),       // KEY[0] thường dùng làm reset (tích cực mức thấp)
+        .start(start),
+        .rx_llr(rx_llr),
+        .done(done),
+        .decoded_bits(decoded_bits)
+    );
+
+    //========================================================
+    // XỬ LÝ GÁN TÍN HIỆU NGÕ RA
+    //========================================================
+    // Dùng LEDG[8] để hiển thị cờ báo xong (done)
+    assign LEDG[8] = done;
+    assign LEDG[7:0] = 8'h00; // Tắt các LEDG còn lại
+
+    // Gán 18 bit đầu tiên của kết quả giải mã ra 18 LED đỏ
+    // Điều này giúp Quartus giữ lại module mà không bị lược bỏ (optimize away)
+    assign LEDR = decoded_bits[17:0];
+
+endmodule

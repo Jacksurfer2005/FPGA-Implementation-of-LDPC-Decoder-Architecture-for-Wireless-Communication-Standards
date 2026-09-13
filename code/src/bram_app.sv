@@ -2,7 +2,7 @@
 
 module bram_app #(
   parameter int DEPTH = 24,
-  parameter int WIDTH = 144
+  parameter int WIDTH = 192
 )(
   input  logic                     clk,
   // cong A - doc
