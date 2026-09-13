@@ -1,13 +1,31 @@
-### Sub-Block Breakdown:
-1. **BRAM APP & CTV:** Divided into $K = N/z$ blocks for parallel access, where $N$ is codeword length and $z$ is circulant size. Dual-port block memories handle concurrent reads/writes.
-2. **Operating Mode Selection:** Manages switching between "decoding" and "result output" modes, asserting the `READY` signal upon completion.
-3. **Iterations Counter:** Monitors convergence equations ($Hx=0$) and iteration limits.
-4. **VTC Calculation Block:** Computes variable-to-check messages by subtracting stored CTVs from current APPs ($VTC_n = APP_n - CTV_n$).
-5. **Min/Submin Calculation Block:** Consists of:
-   * **ABS Module:** Extracts signs and converts signed data to unsigned modulo values.
-   * **Signs XORing Block:** Performs modulo-2 addition across sign bits.
-   * **4-Stage Comparator Cascade:** Efficiently extracts minimum and subminimal values for row weights up to 7 (with zero/max-value padding for smaller weights).
-   * **Sign Insertion Block:** Re-applies the computed global sign vector to the outputs.
+### Detailed Functional Block Specifications:
+
+#### 1. Memory Management Blocks
+* **BRAM APP (A-Posteriori Probability Memory):** Dual-port block memory divided into $K = N/z$ blocks (where $N$ is the codeword length and $z$ is the circulant size) to facilitate concurrent parallel reading and writing. During decoding, selective blocks are accessed according to the active LDPC matrix; upon completion, all memory blocks stream out the decoded data.
+* **BRAM CTV (Check-to-Variable Memory):** Consists of $z$ discrete memory instances. Because all APPs utilized by a given row of the parity-check matrix must update simultaneously, $z$ separate memory banks store intermediate Check-to-Variable messages.
+
+#### 2. Control and State Management Blocks
+* **Iterations Counter Block:** Tracks the number of executed decoding iterations and monitors convergence condition equations ($Hx = 0$). When the preset iteration limit or a valid codeword state is reached, it drives its completion flag high.
+* **Operating Mode Selection Block:** Controls the operational state machine toggling between `"decoding"` and `"result output"` modes. Upon receiving a high-level signal from the Iterations Counter, it asserts the `READY` output and routes the finalized decoded codeword to the output bus; otherwise, it initiates the subsequent decoding iteration.
+
+#### 3. VTC Calculation Block
+* Computes variable-to-check messages by streaming APPs from the `BRAM APP` block and subtracting corresponding stored CTV values:
+  $$VTC_n = APP_n - CTV_n \quad (n = 1 \dots d_r)$$
+  where $d_r$ represents the parity-check matrix row weight.
+
+#### 4. Min/Submin Calculation Block
+A highly optimized, specialized sorting pipeline that evaluates $d_r$ signed VTC inputs to simultaneously extract minimum and subminimal values. For row weights smaller than the maximum capacity (e.g., 8 inputs), unused inputs are padded with maximum positive values corresponding to the current bitwidth. It internally consists of four sub-components:
+* **ABS Module:** Converts signed input data $(1 - 8)$ into unsigned modulo values $(1' - 8')$ while simultaneously extracting individual sign bits and routing them onto the internal signs bus.
+* **Signs XORing Block:** Performs parallel modulo-2 addition (XOR reduction) across the extracted sign vector.
+* **4-Stage Comparator Cascade:** A specialized pipeline composed of four consecutive stages of comparators configured to isolate the minimum and subminimal modulo values for maximum row weights up to 7.
+* **Sign Insertion Block:** Re-applies the globally computed sign (from the Signs XORing block) back to each individual output of the comparator cascade.
+
+#### 5. CTV and APP Calculation Block
+The final arithmetic computation stage responsible for updating messages for the next iteration cycle:
+* **Updated CTV Generation:** Combines the minimum VTC value, the global sign product, and the individual input signs according to:
+  $$CTV_{new n} = \left( \prod_{k=1}^{d_r} \text{sign}(VTC_k) \right) \times \text{sign}(VTC_n) \times \min(VTC)$$
+* **Updated APP Generation:** Computes final updated A-Posteriori Probabilities by adding current VTC values to newly calculated CTVs:
+  $$APP_{new n} = VTC_n + CTV_{new n}$$
 
 ---
 
